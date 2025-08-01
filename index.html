@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iDiscuss - Coding Forum</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .carousel-img {
+            height: 500px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .carousel-caption {
+            bottom: 30%;
+        }
+        
+        .category-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Include -->
+    <?php include 'partials/_header.php'; ?>
+
+    <!-- Carousel -->
+    <div id="forumCarousel" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#forumCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#forumCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#forumCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="slide2.avif" class="d-block w-100 carousel-img" alt="Developers collaborating">
+                <div class="carousel-caption text-start">
+                    <h2 class="display-4 fw-bold">Join the Developer Community</h2>
+                    <p class="lead">Discuss, learn and grow with fellow programmers</p>
+                    <a href="#categories" class="btn btn-primary btn-lg mt-3">Explore Categories</a>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="slide3.avif" class="d-block w-100 carousel-img" alt="Developer asking question">
+                <div class="carousel-caption text-center">
+                    <h2 class="display-4 fw-bold">Ask Questions</h2>
+                    <p class="lead">Get help from experienced developers worldwide</p>
+                    <button class="btn btn-outline-light btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#signupModal">Join Now</button>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="slide1.avif" class="d-block w-100 carousel-img" alt="Developer sharing knowledge">
+                <div class="carousel-caption text-end">
+                    <h2 class="display-4 fw-bold">Share Your Knowledge</h2>
+                    <p class="lead">Help others by answering questions</p>
+                    <a href="#" class="btn btn-primary btn-lg mt-3">Start Contributing</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#forumCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#forumCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Main -->
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Welcome to iDiscuss</h1>
+                <p class="lead fs-4">A community for developers to discuss coding problems, share knowledge, and grow together.</p>
+            </div>
+        </div>
+
+        <!-- Categories-->
+        <div class="row mb-5" id="categories">
+            <div class="col-12 mb-5">
+                <h2 class="text-center mb-4 display-5 fw-bold">Popular Categories</h2>
+                <p class="text-center text-muted mb-5">Explore our most active discussion topics</p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 category-card border-0">
+                    <img src="pyhton.avif" class="card-img-top" alt="Python programming">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-file-code-fill text-primary fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Python</h5>
+                        <p class="card-text">Discuss Python programming, frameworks, and libraries like Django and Flask.</p>
+                        <a href="#" class="btn btn-primary px-4">View Threads</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 category-card border-0">
+                    <img src="javs.avif" class="card-img-top" alt="JavaScript development">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-file-earmark-code-fill text-primary fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">JavaScript</h5>
+                        <p class="card-text">Talk about frontend and backend JavaScript development with React, Node.js.</p>
+                        <a href="#" class="btn btn-primary px-4">View Threads</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 category-card border-0">
+                    <img src="database.webp" class="card-img-top" alt="Database technologies">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-database-fill text-primary fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Database</h5>
+                        <p class="card-text">SQL, NoSQL, and everything in between including MySQL, MongoDB.</p>
+                        <a href="#" class="btn btn-primary px-4">View Threads</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-dark text-white py-5">
+        <div class="container text-center py-4">
+            <h2 class="display-5 fw-bold mb-4">Ready to join our community?</h2>
+            <p class="lead mb-5">Sign up now and start connecting with developers worldwide</p>
+            <button class="btn btn-primary btn-lg px-5" data-bs-toggle="modal" data-bs-target="#signupModal">
+                <i class="bi bi-person-plus me-2"></i>Sign Up Free
+            </button>
+        </div>
+    </div>
+
+
+    <?php include 'partials/_footer.php'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var carousel = new bootstrap.Carousel(document.getElementById('forumCarousel'), {
+                pause: 'hover',
+                wrap: true
+            });
+        });
+    </script>
+</body>
+</html>
